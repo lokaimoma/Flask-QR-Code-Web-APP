@@ -1,11 +1,16 @@
 # Created by Kelvin_Clark on 3/3/2022, 11:06 AM
 import os
 from flask import Flask
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     SECRET_KEY = os.environ.get("SECRET_KEY")
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    ENV = "development"
 
     @staticmethod
     def init_app(app: Flask):
@@ -17,6 +22,9 @@ class Development(Config):
 
 
 class Production(Config):
+    SESSION_COOKIE_SECURE = True
+    PERMANENT_SESSION_LIFETIME = 1800
+    ENV = "production"
     SQLALCHEMY_DATABASE_URI = os.environ["DATABASE_URL"]
     SECRET_KEY = os.environ["SECRET_KEY"]
 
