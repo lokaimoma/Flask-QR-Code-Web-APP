@@ -2,21 +2,22 @@
 import os
 from typing import Optional
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_alembic import Alembic
 from flask_sqlalchemy import SQLAlchemy
 
 from src.config import config
 
 src_path = os.path.abspath(os.path.dirname(__file__))
+print(src_path)
 
 database = SQLAlchemy()
 alembic = Alembic()
 
 
 def create_app(config_name: Optional[str] = "default") -> tuple[Flask, SQLAlchemy, Alembic]:
-    app = Flask(__name__, static_folder=os.path.join(src_path, "templates"),
-                template_folder=os.path.join(src_path, "static"))
+    app = Flask(__name__, static_folder=os.path.join(src_path, "static"),
+                template_folder=os.path.join(src_path, "templates"))
     try:
         app.config.from_object(config[config_name])
         config[config_name].init_app(app)
@@ -28,4 +29,9 @@ def create_app(config_name: Optional[str] = "default") -> tuple[Flask, SQLAlchem
     except KeyError:
         raise ValueError(
             f"The config name can be either default, development, production or testing not ${config_name}")
+
+    @app.route("/")
+    def index():
+        return render_template("index.html")
+
     return app, database, alembic

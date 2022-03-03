@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap&text=Cypher QR");
+
+body {
+  height: 100vh;
+  overflow: auto;
+  background-color: var(--clr-dark);
+}
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  color: #fff;
+  padding: var(--padding-medium);
+}
+
+.introduction {
+  padding: var(--padding-medium);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.introduction p {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.logo {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: var(--fs-large);
+  text-align: center;
+}
