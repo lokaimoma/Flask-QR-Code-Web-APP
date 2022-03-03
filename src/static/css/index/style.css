@@ -10,7 +10,8 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column-reverse;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   color: #fff;
   padding: var(--padding-medium);
 }
@@ -25,10 +26,34 @@ main {
 .introduction p {
   font-size: 1.6rem;
   font-weight: 300;
+  margin: 0.8rem 0.3rem;
 }
 
 .logo {
   font-family: "Red Hat Display", sans-serif;
   font-size: var(--fs-large);
   text-align: center;
+}
+
+@media screen and (min-width: 1250px) {
+  .logo {
+    text-align: initial;
+  }
+
+  .introduction {
+    padding: var(--padding-large);
+  }
+
+  .introduction p {
+    text-align: justify;
+  }
+
+  main {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  main > * {
+    flex-basis: 50%;
+  }
 }
