@@ -5,8 +5,8 @@ from src import database as db
 class User(db.Model):
     __tablename__ = "users"
     username: str = db.Column(db.String(200).with_variant(db.Text, "sqlite"), unique=True, primary_key=True)
-    email: str = db.Column(db.String(200).with_variant(db.Text, "sqlite"), unique=True)
-    password: str = db.Column(db.String(500).with_variant(db.Text, "sqlite"))
+    email: str = db.Column(db.String(200).with_variant(db.Text, "sqlite"), unique=True, nullable=False)
+    password: str = db.Column(db.String(500).with_variant(db.Text, "sqlite"), nullable=False)
 
     def __init__(self, username: str, email: str, password: str):
         self.email = email

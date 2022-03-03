@@ -1,8 +1,10 @@
 # Created by Kelvin_Clark on 3/3/2022, 11:06 AM
-from typing import Optional, Tuple
+from typing import Optional
+
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_alembic import Alembic
+from flask_sqlalchemy import SQLAlchemy
+
 from src.config import config
 
 database = SQLAlchemy()
@@ -16,6 +18,7 @@ def create_app(config_name: Optional[str] = "default") -> tuple[Flask, SQLAlchem
         config[config_name].init_app(app)
         global database
         global alembic
+        import src.models.__all_models__
         database.init_app(app)
         alembic.init_app(app)
     except KeyError:

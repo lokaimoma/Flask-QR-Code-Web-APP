@@ -7,7 +7,7 @@ load_dotenv()
 
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URL")
     SECRET_KEY = os.environ.get("SECRET_KEY")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     ENV = "development"
@@ -25,7 +25,7 @@ class Production(Config):
     SESSION_COOKIE_SECURE = True
     PERMANENT_SESSION_LIFETIME = 1800
     ENV = "production"
-    SQLALCHEMY_DATABASE_URI = os.environ["DATABASE_URL"]
+    SQLALCHEMY_DATABASE_URI = os.environ["SQLALCHEMY_DATABASE_URL"]
     SECRET_KEY = os.environ["SECRET_KEY"]
 
 
