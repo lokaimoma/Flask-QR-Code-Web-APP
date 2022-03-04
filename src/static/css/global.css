@@ -57,3 +57,14 @@ img {
 .btn:hover {
   transform: scale(0.9);
 }
+
+.text-center {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.text-inline {
+  color: rgb(200, 200, 200);
+  font-size: 0.7rem;
+  font-weight: bold;
+}

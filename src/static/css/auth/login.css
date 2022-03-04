@@ -1,0 +1,23 @@
+body {
+  height: 100vh;
+  overflow: auto;
+  background: url("/static/images/login_bg.jpg") no-repeat center center / cover;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+
+main {
+  border-radius: 30px;
+  padding: 3rem;
+  backdrop-filter: blur(6px);
+  min-width: 40%;
+  width: max-content;
+  background-color: rgba(0, 0, 0, 0.171);
+}
+
+@supports not (backdrop-filter: blur(2px)) {
+  main {
+    background-color: rgba(0, 0, 0, 0.746);
+  }
+}

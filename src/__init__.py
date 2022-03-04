@@ -30,7 +30,7 @@ def create_app(config_name: Optional[str] = "default") -> tuple[Flask, SQLAlchem
     except KeyError:
         raise ValueError(
             f"The config name can be either default, development, production or testing not ${config_name}")
-    app.register_blueprint(auth_router)
+    app.register_blueprint(auth_router, url_prefix="/auth")
 
     @app.route("/")
     def index():
