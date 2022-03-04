@@ -7,6 +7,7 @@ from flask_alembic import Alembic
 from flask_sqlalchemy import SQLAlchemy
 
 from src.config import config
+from src.routes.auth import auth_router
 
 src_path = os.path.abspath(os.path.dirname(__file__))
 print(src_path)
@@ -29,6 +30,7 @@ def create_app(config_name: Optional[str] = "default") -> tuple[Flask, SQLAlchem
     except KeyError:
         raise ValueError(
             f"The config name can be either default, development, production or testing not ${config_name}")
+    app.register_blueprint(auth_router)
 
     @app.route("/")
     def index():
