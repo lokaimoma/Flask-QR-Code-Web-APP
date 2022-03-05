@@ -8,4 +8,4 @@ class UserDao:
 
     @staticmethod
     def get_user_by_email(email: str) -> Optional[User]:
-        return User.query.filter_by(User.email == email).first()
+        return User.query.filter_by(email=email).first()
