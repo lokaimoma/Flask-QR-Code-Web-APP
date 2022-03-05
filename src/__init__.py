@@ -24,7 +24,7 @@ def create_app(config_name: Optional[str] = "default") -> tuple[Flask, SQLAlchem
         config[config_name].init_app(app)
         global database
         global alembic
-        import src.models.__all_models__
+        import src.models.entities.__all_models__
         database.init_app(app)
         alembic.init_app(app)
     except KeyError:

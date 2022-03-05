@@ -1,52 +1,42 @@
 {% extends "base.html" %} {% block title %}Log In {% endblock %} {% block style
 %} {{ super() }}
 <link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='css/form.css') }}"
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/form.css') }}"
 />
 <link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='css/auth/login.css') }}"
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/auth/login.css') }}"
 />
 {% endblock %} {% block content %}
 <main>
-  <h3 class="text-center">Login</h3>
-  <form action="" method="POST">
-    <div class="field-wrapper">
-      <img
-        class="field-icon"
-        src="{{ url_for('static', filename='images/user.svg') }}"
-        alt="User svg"
-      />
-      <input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="user@mail.com"
-        required
-      />
-    </div>
-    <div class="field-wrapper">
-      <img
-        class="field-icon"
-        src="{{ url_for('static', filename='images/password.svg') }}"
-        alt="User svg"
-      />
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="***************"
-        required
-      />
-    </div>
-    <input type="submit" value="Log In" />
-    <p class="text-inline text-center">
-      Forget Your Password? <a href="#">Reset Password</a>
-    </p>
-    <p class="text-inline text-center">
-      Don't have an account? <a href="#">Sign Up</a>
-    </p>
-  </form>
+    <h3 class="text-center">Login</h3>
+    <form action="" method="POST">
+        {% for field in form %}
+        <div class="field-wrapper">
+            {% if field.type == "EmailField" %}
+            <img
+                    class="field-icon"
+                    src="{{ url_for('static', filename='images/user.svg') }}"
+                    alt="User svg"
+            />
+            {% elif field.type == "PasswordField" %}
+            <img
+                    class="field-icon"
+                    src="{{ url_for('static', filename='images/password.svg') }}"
+                    alt="User svg"
+            />
+            {% endif %}
+            {{ field }}
+        </div>
+        {% endfor %}
+        <input type="submit" value="Log In"/>
+        <p class="text-inline text-center">
+            Forget Your Password? <a href="#">Reset Password</a>
+        </p>
+        <p class="text-inline text-center">
+            Don't have an account? <a href="#">Sign Up</a>
+        </p>
+    </form>
 </main>
 {% endblock %}
