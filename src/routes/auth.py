@@ -2,6 +2,7 @@
 from flask import Blueprint, render_template, request, session, flash
 from src.models.forms.sign_in import SignInForm
 from src.controllers.user import UserController
+from src.utils.enum.flash_message_category import FlashMessageCategory
 
 auth_router = Blueprint("auth", import_name=__name__)
 
@@ -14,5 +15,5 @@ def login_route():
         if is_successful:
             pass
             # TODO: Redirect to qr code page / user page (Not sure yet)
-        flash(message="Incorrect Login Credentials or User doesn't exist")
+        flash(message="Incorrect Login Credentials or User doesn't exist", category=FlashMessageCategory.ERROR.value)
     return render_template("auth/signIn.html", form=form)

@@ -9,6 +9,9 @@
 :root {
   --clr-primary: #1e43fd;
   --clr-dark: #1f1f1f;
+  --clr-alert-border: #b8daff;
+  --clr-alert-bg: #cce5ff;
+  --clr-alert-text: #0040a5;
   --padding-small: 0.5rem;
   --padding-medium: 1rem;
   --padding-large: 2rem;
@@ -27,6 +30,7 @@ a {
 body {
   font-size: var(--fs-default);
   font-family: "Lato", sans-serif;
+  position: relative;
 }
 
 img {
@@ -67,4 +71,41 @@ img {
   color: rgb(200, 200, 200);
   font-size: 0.7rem;
   font-weight: bold;
+}
+
+.alert-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-block: 2rem;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.alert {
+  width: 70%;
+  padding: 0.8rem 0.3rem;
+  border-radius: 7px;
+  background-color: var(--clr-alert-bg);
+  border: 2px solid var(--clr-alert-border);
+  color: var(--clr-alert-text);
+}
+
+.alert-error {
+  --clr-alert-border: #f5c6cb;
+  --clr-alert-bg: #f8d7da;
+  --clr-alert-text: #721c24;
+}
+
+.alert-warning {
+  --clr-alert-border: #ffeeba;
+  --clr-alert-bg: #fff3cd;
+  --clr-alert-text: #856404;
+}
+
+.alert-success {
+  --clr-alert-border: #c3e6cb;
+  --clr-alert-bg: #d4edda;
+  --clr-alert-text: #155724;
 }
