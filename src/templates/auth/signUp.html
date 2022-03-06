@@ -8,6 +8,10 @@
         rel="stylesheet"
         href="{{ url_for('static', filename='css/auth/login.css') }}"
 />
+<link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/auth/register.css') }}"
+/>
 {% endblock %} {% block content %}
 <main>
     <h3 class="text-center">Sign up</h3>
@@ -23,7 +27,7 @@
             {% endif %}
         </div>
         {% endfor %}
-        <input type="submit" value="Log In"/>
+        <input type="submit" value="Register"/>
         <p class="text-inline text-center">
             Have an account? <a href="{{ url_for('auth.login_route') }}">Sign In</a>
         </p>

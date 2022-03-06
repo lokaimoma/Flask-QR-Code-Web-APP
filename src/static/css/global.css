@@ -109,3 +109,9 @@ img {
   --clr-alert-bg: #d4edda;
   --clr-alert-text: #155724;
 }
+
+.error {
+    font-size: var(--fs-small);
+    color: red;
+    font-weight: bold;
+}
