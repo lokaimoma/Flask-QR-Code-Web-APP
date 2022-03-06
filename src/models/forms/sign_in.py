@@ -3,5 +3,5 @@ from wtforms import Form, PasswordField, EmailField, validators
 
 
 class SignInForm(Form):
-    email = EmailField("hello@mail.com", validators=[validators.input_required(), validators.email()])
-    password = PasswordField("***********", validators=[validators.input_required()])
+    email = EmailField("Email", validators=[validators.input_required(), validators.email()])
+    password = PasswordField("Password", validators=[validators.input_required()])
