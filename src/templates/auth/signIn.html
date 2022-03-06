@@ -28,6 +28,11 @@
             />
             {% endif %}
             {{ field }}
+            {% if field.errors %}
+            {% for error in field.errors %}
+             <p class="error">{{ error }}</p>
+            {% endfor %}
+            {% endif %}
         </div>
         {% endfor %}
         <input type="submit" value="Log In"/>
