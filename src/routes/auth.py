@@ -11,7 +11,7 @@ auth_router = Blueprint("auth", import_name=__name__)
 @auth_router.route("/login", methods=["GET", "POST"])
 def login_route():
     form = SignInForm(formdata=request.form)
-    if request.method == "POST":
+    if request.method == "POST" and form.validate():
         is_successful = UserController.login_user(request=request, session=session)
         if is_successful:
             pass
@@ -23,4 +23,11 @@ def login_route():
 @auth_router.route("/register", methods=["GET", "POST"])
 def register_route():
     form = SignUpForm(formdata=request.form)
+    if request.method == "POST" and form.validate():
+        is_successful = UserController.register_user(request=request, session=session)
+        if is_successful:
+            pass
+            # TODO: Redirect to qr code page / user page (Not sure yet)
+        flash(message="User might already exist. Try again with different credentials",
+              category=FlashMessageCategory.WARNING.value)
     return render_template("auth/signUp.html", form=form)
