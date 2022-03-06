@@ -1,6 +1,7 @@
 # Created by Kelvin_Clark on 3/4/2022, 3:40 PM
 from flask import Blueprint, render_template, request, session, flash
 from src.models.forms.sign_in import SignInForm
+from src.models.forms.sign_up import SignUpForm
 from src.controllers.user import UserController
 from src.utils.enum.flash_message_category import FlashMessageCategory
 
@@ -17,3 +18,9 @@ def login_route():
             # TODO: Redirect to qr code page / user page (Not sure yet)
         flash(message="Incorrect Login Credentials or User doesn't exist", category=FlashMessageCategory.ERROR.value)
     return render_template("auth/signIn.html", form=form)
+
+
+@auth_router.route("/register", methods=["GET", "POST"])
+def register_route():
+    form = SignUpForm(formdata=request.form)
+    return render_template("auth/signUp.html", form=form)
