@@ -17,8 +17,8 @@ style%} {{ super() }}
       home. We hope you will like this.
     </p>
     <div class="flow">
-      <a href="/auth/login" class="btn">Log In</a>
-      <a href="#" class="btn">Register</a>
+      <a href="{{ url_for('auth.login_route') }}" class="btn">Log In</a>
+      <a href="{{ url_for('auth.register_route') }}" class="btn">Register</a>
       <a href="#" class="btn">Try</a>
     </div>
   </section>
