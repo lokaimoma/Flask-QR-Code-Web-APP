@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %}Sign Up {% endblock %} {% block style
+%} {{ super() }}
+<link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/form.css') }}"
+/>
+<link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/auth/login.css') }}"
+/>
+{% endblock %} {% block content %}
+<main>
+    <h3 class="text-center">Sign up</h3>
+    <form action="" method="POST">
+        {% for field in form %}
+        <div class="field-wrapper">
+            {{ field.label }}
+            {{ field }}
+            {% if field.errors %}
+            {% for error in field.errors %}
+             <p class="error">{{ error }}</p>
+            {% endfor %}
+            {% endif %}
+        </div>
+        {% endfor %}
+        <input type="submit" value="Log In"/>
+        <p class="text-inline text-center">
+            Have an account? <a href="{{ url_for('auth.login_route') }}">Sign In</a>
+        </p>
+    </form>
+</main>
+{% endblock %}
