@@ -31,7 +31,7 @@ class Production(Config):
 
 class Test(Config):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///./test.sqlite3"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
 
 
 config = {
