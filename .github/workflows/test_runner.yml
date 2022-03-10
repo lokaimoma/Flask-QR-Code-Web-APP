@@ -1,0 +1,42 @@
+
+name: Tests Runner
+on:
+  push:
+    branches:
+      - "main"
+      - "*"
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: "123"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Load cached Poetry installation
+        uses: actions/cache@v2
+        with:
+          path: ~/.local
+          key: poetry-0
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.1.12
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          virtualenvs-path: ~/.local
+          installer-parallel: true
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
+      - name: Run tests
+        run: poetry run pytest
