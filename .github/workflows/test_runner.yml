@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SECRET_KEY: "123"
+      SQLALCHEMY_DATABASE_URL: "sqlite:///:memory:"
     steps:
       - uses: actions/checkout@v2
       - name: Setup Python
