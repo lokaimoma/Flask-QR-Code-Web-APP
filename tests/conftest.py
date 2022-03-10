@@ -6,9 +6,10 @@ from pytest import fixture
 def app():
     from src import create_app
     (app, db, alembic) = create_app(config_name="testing")
-    db.create_all()
+    with app.app_context():
+        db.drop_all()
+        db.create_all()
     yield app
-    db.drop_all()
 
 
 @fixture()
