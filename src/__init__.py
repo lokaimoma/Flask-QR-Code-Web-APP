@@ -25,7 +25,7 @@ def create_app(config_name: Optional[str] = "default") -> tuple[Flask, SQLAlchem
         global alembic
         import src.models.entities.__all_models__
         database.init_app(app)
-        alembic.init_app(app)
+        alembic.init_app(app, run_mkdir=False)
     except KeyError:
         raise ValueError(
             f"The config name can be either default, development, production or testing not ${config_name}")
