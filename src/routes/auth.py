@@ -8,7 +8,7 @@ from src.utils.enum.flash_message_category import FlashMessageCategory
 auth_router = Blueprint("auth", import_name=__name__)
 
 
-@auth_router.route("/login", methods=["GET", "POST"])
+@auth_router.route("/login/", methods=["GET", "POST"])
 def login_route():
     form = SignInForm(formdata=request.form)
     if request.method == "POST" and form.validate():
@@ -20,7 +20,7 @@ def login_route():
     return render_template("auth/signIn.html", form=form)
 
 
-@auth_router.route("/register", methods=["GET", "POST"])
+@auth_router.route("/register/", methods=["GET", "POST"])
 def register_route():
     form = SignUpForm(formdata=request.form)
     if request.method == "POST" and form.validate():
