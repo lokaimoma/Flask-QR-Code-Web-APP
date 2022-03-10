@@ -16,5 +16,5 @@ def login_required(callback: Callable) -> Union[Any, Response]:
                 raise UserDoesNotExist()
             return callback(*args, **kwargs)
         except (KeyError, UserDoesNotExist):
-            return redirect(url_for("auth.login"))
+            return redirect(url_for("auth.login_route"))
     return wrap
