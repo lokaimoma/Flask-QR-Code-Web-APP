@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html' %} {% block title %} Generate QR Code {% endblock %} {%
+block header %} {% include "header.html" %} {% endblock %} {% block content %}
+<main>
+  <section class="palette">
+    <textarea
+      id="payload"
+      placeholder="Enter your qr code data here"
+    ></textarea>
+    <h3>Color</h3>
+    <select name="color-mode">
+      <option value="solid">Solid</option>
+      <option value="square">Square-gradient</option>
+      <option value="linear">Linear-gradient</option>
+    </select>
+    <!-- Depending on color mode show options -->
+    <h3>Shape</h3>
+    <select name="shape">
+      <option value="square">Square</option>
+      <option value="gap-square">Grap-Square</option>
+      <option value="circle">Circle</option>
+      <option value="vertical-bars">Vertical bars</option>
+      <option value="horizontal-bars">Horizontal bars</option>
+    </select>
+    <button>Generate</button>
+  </section>
+</main>
+{% endblock %}
