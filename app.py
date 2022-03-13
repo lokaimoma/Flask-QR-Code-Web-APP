@@ -4,4 +4,4 @@ from src import create_app
 (app, database, alembic) = create_app("development")
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0")
