@@ -15,7 +15,7 @@ from qrcode.image.styles.colormasks import (QRColorMask, SolidFillColorMask, Squ
 from .enums import QRDrawerShapeEnum, QRColorMode
 
 
-def generate(data: Any, shape: str, color_mode: str, **kwargs) -> Union[PilImage, Any]:
+def generate_qr_code_image(data: Any, shape: str, color_mode: str, **kwargs) -> Union[PilImage, Any]:
     qr = qrcode.QRCode()
     qr.add_data(data)
     s = __get_shape_module(shape)
