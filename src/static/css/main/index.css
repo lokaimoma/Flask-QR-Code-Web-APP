@@ -1,7 +1,7 @@
 main {
   display: grid;
   place-content: center;
-  margin: 3rem;
+  margin: 3rem 0.4rem;
 }
 
 .palette {
@@ -64,7 +64,7 @@ select:focus {
   border-color: var(--clr-primary);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
   .section > *.flow {
     justify-content: initial;
   }
