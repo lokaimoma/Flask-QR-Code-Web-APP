@@ -84,7 +84,7 @@ block content %}
     <div class="section shapes">
       <h3>Shape</h3>
       <div class="flow">
-        <input type="radio" name="shape" id="square" checked />
+        <input type="radio" name="shape" value="squared" id="squared" checked />
         <label for="square">
           <img
             class="image-label"
@@ -93,16 +93,16 @@ block content %}
           />
         </label>
 
-        <input type="radio" name="shape" id="graph" />
-        <label for="graph">
+        <input type="radio" name="shape" value="gaped-squared" id="gaped-squared" />
+        <label for="gaped-squared">
           <img
             class="image-label"
-            src="{{ url_for('static', filename='images/qr_shape/graph_square.png') }}"
+            src="{{ url_for('static', filename='images/qr_shape/gapped_square.png') }}"
             alt=""
           />
         </label>
 
-        <input type="radio" name="shape" id="circle" />
+        <input type="radio" name="shape" value="circle" id="circle" />
         <label for="circle">
           <img
             class="image-label"
@@ -111,7 +111,7 @@ block content %}
           />
         </label>
 
-        <input type="radio" name="shape" id="round" />
+        <input type="radio" name="shape" value="round" id="round" />
         <label for="round">
           <img
             class="image-label"
@@ -120,7 +120,7 @@ block content %}
           />
         </label>
 
-        <input type="radio" name="shape" id="horizontal_bar" />
+        <input type="radio" name="shape" value="horizontal_bar" id="horizontal_bar" />
         <label for="horizontal_bar">
           <img
             class="image-label"
@@ -129,7 +129,7 @@ block content %}
           />
         </label>
 
-        <input type="radio" name="shape" id="vertical_bar" />
+        <input type="radio" name="shape" value="vertical_bar" id="vertical_bar" />
         <label for="vertical_bar">
           <img
             class="image-label"
