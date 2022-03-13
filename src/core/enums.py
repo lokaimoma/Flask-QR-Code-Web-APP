@@ -2,10 +2,19 @@
 from enum import Enum
 
 
-class QRDrawerShape(str, Enum):
+class QRDrawerShapeEnum(str, Enum):
     SQUARED = "squared"
     GAPED_SQUARED = "gaped-squared"
     CIRCLE = "circle"
     ROUND = "round"
     HORIZONTAL_BAR = "horizontal_bar"
     VERTICAL_BAR = "vertical_bar"
+
+
+class QRColorMode(str, Enum):
+    SOLID = "solid"
+    RADIAL = "radial"
+    SQUARE = "square"
+    LINEAR = "linear"
+    LINEAR_HORIZONTAL = "linear-horizontal"
+    LINEAR_VERTICAL = "linear-vertical"
