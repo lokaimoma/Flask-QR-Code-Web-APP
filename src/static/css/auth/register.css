@@ -1,19 +1,20 @@
 .field-wrapper {
-    background: transparent;
-    padding: none;
-    align-items: center;
+  background: transparent;
+  padding: none;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 label {
-    font-weight: bold;
-    width: max-content;
+  font-weight: bold;
+  width: max-content;
 }
 
-input:not([type="submit"]){
-    width: initial;
-    flex-basis: auto;
-    background-color: rgba(31, 31, 31, 0.678);
-    padding: 0.5rem 0.6rem;
-    flex-grow: 1;
-    border-radius: 7px;
+input:not([type="submit"]) {
+  width: initial;
+  flex-basis: auto;
+  background-color: rgba(31, 31, 31, 0.678);
+  padding: 0.5rem 0.6rem;
+  flex-grow: 1;
+  border-radius: 7px;
 }

@@ -1,9 +1,9 @@
 form {
-  margin: 0.6rem;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
   width: 100%;
+  margin: 0.3rem 0;
 }
 
 .field-icon {
