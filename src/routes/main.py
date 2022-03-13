@@ -15,7 +15,7 @@ def main_index():
     return render_template("main/index.html")
 
 
-@main_router.route("/generateQrCode/", methods=["POST"])
+@main_router.route("/generateQrCode/", methods=["POST", "GET"])
 @login_required
 def generate_qr():
     json = request.json

@@ -3,7 +3,7 @@ from flask import url_for
 import pytest
 
 
-@pytest.mark.parametrize(argnames='path', argvalues=["/app/"])
+@pytest.mark.parametrize(argnames='path', argvalues=["/app/", "/app/generateQrCode/"])
 def test_login_required(test_client, path):
     with test_client:
         response = test_client.get(path)
