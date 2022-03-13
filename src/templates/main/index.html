@@ -1,27 +1,144 @@
 {% extends 'base.html' %} {% block title %} Generate QR Code {% endblock %} {%
-block header %} {% include "header.html" %} {% endblock %} {% block content %}
+block style %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/main/index.css') }}"
+/>
+{% endblock %} {% block scripts %} {{ super() }}
+<script
+  src="{{ url_for('static', filename='js/main/index.js') }}"
+  defer
+></script>
+{% endblock %} {%block header %} {% include "header.html" %} {% endblock %} {%
+block content %}
 <main>
   <section class="palette">
     <textarea
       id="payload"
-      placeholder="Enter your qr code data here"
+      placeholder="Enter your qr code data here E.g: https://google.com, {'hello': 'Hello world'}, etc"
     ></textarea>
-    <h3>Color</h3>
-    <select name="color-mode">
-      <option value="solid">Solid</option>
-      <option value="square">Square-gradient</option>
-      <option value="linear">Linear-gradient</option>
-    </select>
-    <!-- Depending on color mode show options -->
-    <h3>Shape</h3>
-    <select name="shape">
-      <option value="square">Square</option>
-      <option value="gap-square">Grap-Square</option>
-      <option value="circle">Circle</option>
-      <option value="vertical-bars">Vertical bars</option>
-      <option value="horizontal-bars">Horizontal bars</option>
-    </select>
-    <button>Generate</button>
+    <div class="section colors">
+      <h3>Color</h3>
+      <div class="flow">
+        <label for="color-mode">Mode</label>
+        <select name="color-mode" id="color-mode">
+          <option value="solid">Solid</option>
+          <option value="radial">Radial gradient</option>
+          <option value="square">Square gradient</option>
+          <option value="linear">Linear gradient</option>
+        </select>
+      </div>
+      <div class="color-sec solid">
+        <div class="flow">
+          <div class="flow">
+            <label for="solid-bg">Background color</label>
+            <input type="color" id="solid-bg" />
+          </div>
+          <div class="flow">
+            <label for="solid-fg">Foreground color</label>
+            <input type="color" id="solid-fg" />
+          </div>
+        </div>
+      </div>
+      <div class="color-sec radial square">
+        <div class="flow">
+          <div class="flow">
+            <label for="bg">Background color</label>
+            <input type="color" id="bg" />
+          </div>
+          <div class="flow">
+            <label for="center">Center color</label>
+            <input type="color" id="center" />
+          </div>
+          <div class="flow">
+            <label for="edge">Edge color</label>
+            <input type="color" id="edge" />
+          </div>
+        </div>
+      </div>
+      <div class="color-sec linear">
+        <div class="flow">
+          <div class="flow">
+            <label for="direction">Direction</label>
+            <select id="direction">
+              <option value="horizontal">Horizontal</option>
+              <option value="vertical">Vertical</option>
+            </select>
+          </div>
+          <div class="flow">
+            <label for="linear-bg">Background color</label>
+            <input type="color" id="linear-bg" />
+          </div>
+          <div class="flow">
+            <label for="linear-start">Start color</label>
+            <input type="color" id="linear-start" />
+          </div>
+          <div class="flow">
+            <label for="linear-end">End color</label>
+            <input type="color" id="linear-end" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section shapes">
+      <h3>Shape</h3>
+      <div class="flow">
+        <input type="radio" name="shape" id="square" checked />
+        <label for="square">
+          <img
+            class="image-label"
+            src="{{ url_for('static', filename='images/qr_shape/square_module.png') }}"
+            alt=""
+          />
+        </label>
+
+        <input type="radio" name="shape" id="graph" />
+        <label for="graph">
+          <img
+            class="image-label"
+            src="{{ url_for('static', filename='images/qr_shape/graph_square.png') }}"
+            alt=""
+          />
+        </label>
+
+        <input type="radio" name="shape" id="circle" />
+        <label for="circle">
+          <img
+            class="image-label"
+            src="{{ url_for('static', filename='images/qr_shape/circle_module.png') }}"
+            alt=""
+          />
+        </label>
+
+        <input type="radio" name="shape" id="round" />
+        <label for="round">
+          <img
+            class="image-label"
+            src="{{ url_for('static', filename='images/qr_shape/round_module.png') }}"
+            alt=""
+          />
+        </label>
+
+        <input type="radio" name="shape" id="horizontal_bar" />
+        <label for="horizontal_bar">
+          <img
+            class="image-label"
+            src="{{ url_for('static', filename='images/qr_shape/horizontal_bar.png') }}"
+            alt=""
+          />
+        </label>
+
+        <input type="radio" name="shape" id="vertical_bar" />
+        <label for="vertical_bar">
+          <img
+            class="image-label"
+            src="{{ url_for('static', filename='images/qr_shape/vertical_bar.png') }}"
+            alt=""
+          />
+        </label>
+      </div>
+    </div>
+    <button class="btn primary">Generate</button>
   </section>
 </main>
 {% endblock %}

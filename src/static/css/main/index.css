@@ -1,0 +1,71 @@
+main {
+  display: grid;
+  place-content: center;
+  margin: 3rem;
+}
+
+.palette {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border: 2px solid var(--clr-primary-lt);
+  padding: 1rem;
+  border-radius: 7px;
+}
+
+.section > * {
+  margin-block-end: 0.3rem;
+}
+
+.section > *.flow {
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.image-label {
+  width: 100px;
+  height: 100px;
+}
+
+.shapes label {
+  border-radius: 5px;
+  padding: 0.3rem;
+  border: 2px solid var(--clr-primary-lt);
+  transition: 0.25s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+}
+
+input[type="radio"]:checked + label {
+  border-color: var(--clr-primary);
+}
+
+.color-sec {
+  display: none;
+}
+
+.color-sec.solid {
+  display: block;
+}
+
+textarea,
+select {
+  border: 2px solid #ccc;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  background-color: #fff;
+  outline: none;
+}
+
+textarea,
+select:focus {
+  border-color: var(--clr-primary);
+}
+
+@media screen and (min-width: 768px) {
+  .section > *.flow {
+    justify-content: initial;
+  }
+}
