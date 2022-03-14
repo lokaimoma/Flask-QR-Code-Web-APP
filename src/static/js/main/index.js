@@ -20,11 +20,16 @@ function handleColorModeChange(newMode) {
 const generateButton = document.querySelector("#generate-btn");
 
 generateButton.addEventListener("click", (_) => {
+    const text = document.querySelector("#payload").value;
+    if (text.trim() == "") {
+        showModal("Invalid data", "The payload can't be empty");
+        return;
+    }
     generateButton.setAttribute("disabled", true);
     const payload = {
         ...getColorModeData(),
         ...getShape(),
-        data: document.querySelector("#payload").value,
+        data: text,
     };
     fetch(`${window.origin}/app/generateQrCode/`, {
         method: "POST",
