@@ -4,7 +4,7 @@ from enum import Enum
 
 class QRDrawerShapeEnum(str, Enum):
     SQUARED = "squared"
-    GAPED_SQUARED = "gaped-squared"
+    GAPED_SQUARED = "gaped_squared"
     CIRCLE = "circle"
     ROUND = "round"
     HORIZONTAL_BAR = "horizontal_bar"
@@ -16,5 +16,5 @@ class QRColorMode(str, Enum):
     RADIAL = "radial"
     SQUARE = "square"
     LINEAR = "linear"
-    LINEAR_HORIZONTAL = "linear-horizontal"
-    LINEAR_VERTICAL = "linear-vertical"
+    LINEAR_HORIZONTAL = "linear_horizontal"
+    LINEAR_VERTICAL = "linear_vertical"
