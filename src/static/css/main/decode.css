@@ -1,0 +1,14 @@
+.camera-btn {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    fill: red;
+}
+
+.flow {
+    justify-content: center;
+}
+
+.btn {
+    margin-inline: auto;
+}

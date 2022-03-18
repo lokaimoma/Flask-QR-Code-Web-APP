@@ -16,6 +16,12 @@ def main_index():
     return render_template("main/index.html")
 
 
+@main_router.route("/decodeQrCode/", methods=["GET", "POST"])
+@login_required
+def decode_qr():
+    return render_template("main/decode.html")
+
+
 @main_router.route("/generateQrCode/", methods=["POST", "GET"])
 @login_required
 def generate_qr():
