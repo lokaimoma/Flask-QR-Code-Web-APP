@@ -32,6 +32,14 @@ git clone https://github.com/lokaimoma/Flask-QR-Code-Web-APP.git
 ```bash
 poetry install --no-root
 ```
+On linux install this dependency for pyzbar to work correctly
+```bash
+sudo apt-get install libzbar0
+```
+On mac os
+```shell
+brew install zbar
+```
 
 -   Add .env file
     You can rename .env_example to .env, and put in the right values for each entry.
