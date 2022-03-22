@@ -2,6 +2,9 @@
 
 This is a Flask poject for creating QR codes and also decoding them. No qr code templates are provided for now, also care should be taken when styling the qr code, not all scanners can scan some of the styles provided in this application.
 
+![Tests](https://github.com/lokaimoma/Flask-QR-Code-Web-APP/actions/workflows/test_runner.yml/badge.svg)
+
+
 ### Demo
 
 [Youtube video link](https://youtu.be/-4Aog7blSkU)
