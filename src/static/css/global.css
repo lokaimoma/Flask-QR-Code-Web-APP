@@ -124,7 +124,7 @@ img {
 }
 
 .test {
-  color: #80000044;
+    color: #80000044;
 }
 
 .error {
@@ -176,4 +176,14 @@ img {
 
 .modal-btn-container > *.btn {
     background-color: var(--clr-primary-lt);
+}
+
+.main-header {
+    padding: 1.4rem 4rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.157);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: #fff;
 }
