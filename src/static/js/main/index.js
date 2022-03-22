@@ -117,3 +117,26 @@ function showModal(title, message) {
         div.remove();
     });
 }
+
+const decodeSubmitBtn = document.getElementById("decode-btn");
+
+document.querySelector("#decode-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    decodeSubmitBtn.setAttribute("disabled", true);
+    const formData = new FormData(e.target);
+    fetch(`${window.origin}/app/decodeQrCode/`, {
+        method: "POST",
+        body: formData,
+    })
+        .then((data) => data.json())
+        .then((json) => {
+            if (json && json.data) {
+                /** @type{string} */
+                let result = json.data.reduce((pv, cv) => `${pv}\n${cv}`, "");
+                result = result.trim();
+                showModal("Decoded Data", result);
+            }
+        })
+        .catch((error) => showModal("Error", error))
+        .finally((_) => decodeSubmitBtn.removeAttribute("disabled"));
+});
