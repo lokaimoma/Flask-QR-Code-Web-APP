@@ -15,6 +15,7 @@ python-dotenv = "^0.19.2"
 PyMySQL = "^1.0.2"
 WTForms = {extras = ["email"], version = "^3.0.1"}
 passlib = "^1.7.4"
+pyzbar = "^0.1.9"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.0.1"

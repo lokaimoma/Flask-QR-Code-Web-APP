@@ -318,6 +318,17 @@ python-versions = ">=3.5"
 cli = ["click (>=5.0)"]
 
 [[package]]
+name = "pyzbar"
+version = "0.1.9"
+description = "Read one-dimensional barcodes and QR codes from Python 2 and 3."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+scripts = ["Pillow (>=3.2.0)"]
+
+[[package]]
 name = "qrcode"
 version = "7.3.1"
 description = "QR Code image generator"
@@ -405,7 +416,7 @@ email = ["email-validator"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "3449ff7f0c74357375e2d9d06a4699e9c6f364e946b37ba649c4ce25bdc9c56e"
+content-hash = "ea791d0eb8723a05d7a4ddfd188fa89392199c68c763302a90a6e9babe6a4c89"
 
 [metadata.files]
 alembic = [
@@ -678,6 +689,11 @@ pytest = [
 python-dotenv = [
     {file = "python-dotenv-0.19.2.tar.gz", hash = "sha256:a5de49a31e953b45ff2d2fd434bbc2670e8db5273606c1e737cc6b93eff3655f"},
     {file = "python_dotenv-0.19.2-py2.py3-none-any.whl", hash = "sha256:32b2bdc1873fd3a3c346da1c6db83d0053c3c62f28f1f38516070c4c8971b1d3"},
+]
+pyzbar = [
+    {file = "pyzbar-0.1.9-py2.py3-none-any.whl", hash = "sha256:4559628b8192feb25766d954b36a3753baaf5c97c03135aec7e4a026036b475d"},
+    {file = "pyzbar-0.1.9-py2.py3-none-win32.whl", hash = "sha256:8f4c5264c9c7c6b9f20d01efc52a4eba1ded47d9ba857a94130afe33703eb518"},
+    {file = "pyzbar-0.1.9-py2.py3-none-win_amd64.whl", hash = "sha256:13e3ee5a2f3a545204a285f41814d5c0db571967e8d4af8699a03afc55182a9c"},
 ]
 qrcode = [
     {file = "qrcode-7.3.1.tar.gz", hash = "sha256:375a6ff240ca9bd41adc070428b5dfc1dcfbb0f2507f1ac848f6cded38956578"},
