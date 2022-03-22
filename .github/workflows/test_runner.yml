@@ -13,7 +13,7 @@ jobs:
             SQLALCHEMY_DATABASE_URL: "sqlite:///:memory:"
         steps:
             - name: Install zbar
-              run: sudo apt-get install install libzbar0
+              run: sudo apt-get install libzbar0
             - uses: actions/checkout@v2
             - name: Setup Python
               uses: actions/setup-python@v2
